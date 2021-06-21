@@ -22,10 +22,10 @@ def load_tokenizer_and_model():
         remote='myremote',
         mode='rb'
     )
-    f = open("hate-speech-tranformers/tf_model.h5", "w+")
+    f = open("hate-speech-tranformers/tf_model.h5", "wb+")
     f.write(hatespeech_h5)
     f.close()
-    f = open("hate-speech-tranformers/config.json", "w+")
+    f = open("hate-speech-tranformers/config.json", "wb+")
     f.write(hatespeech_conf)
     f.close()
 
