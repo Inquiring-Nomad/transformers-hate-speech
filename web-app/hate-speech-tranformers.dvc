@@ -1,0 +1,5 @@
+outs:
+- md5: 77e3e33cc635a1eb89518152509f907b.dir
+  size: 905
+  nfiles: 2
+  path: hate-speech-tranformers
