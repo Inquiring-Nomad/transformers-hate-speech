@@ -1,2 +1,0 @@
-release: dvc pull
-web: sh setup.sh && streamlit run app.py
