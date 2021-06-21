@@ -2,6 +2,7 @@ numpy
 transformers
 datasets
 tensorflow-cpu
+pydrive2
 dvc
 dvc[gdrive]
 streamlit
