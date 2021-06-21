@@ -22,4 +22,9 @@ jobs:
         - name: DVC pull data
           run: |
             dvc pull
+          env:
+            GDRIVE_CREDENTIALS_DATA: ${{ secrets.DVCREMOTE }}
+        -name: Test files
+          run: |
+            ls -altr
 
