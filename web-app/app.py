@@ -2,6 +2,13 @@ import streamlit as st
 import numpy as np
 from transformers import TFAutoModelForSequenceClassification, AutoTokenizer
 import time
+import dvc.api
+
+hatespeech = dvc.api.read(
+        'hate-speech-tranformers',
+        mode='rb'
+        )
+
 
 
 
@@ -9,7 +16,7 @@ def load_tokenizer_and_model():
     with st.spinner('Please wait...'):
         time.sleep(5)
     tokenizer = AutoTokenizer.from_pretrained('bert-base-cased')
-    model = TFAutoModelForSequenceClassification.from_pretrained("hate-speech-tranformers")
+    model = TFAutoModelForSequenceClassification.from_pretrained(hatespeech)
     return (model, tokenizer)
 
 
