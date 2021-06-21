@@ -27,7 +27,7 @@ jobs:
         - name: Deploy to Heroku
           uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
           with:
-            heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+            heroku_api_key: ${{secrets.HEROKU_API_KEY}} # This is the api key
             heroku_app_name: tranformers-hate-speech
             heroku_email: inquiringnomad@gmail.com
             appdir: web-app
