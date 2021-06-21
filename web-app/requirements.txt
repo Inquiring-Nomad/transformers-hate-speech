@@ -1,4 +1,5 @@
 numpy
 transformers
 datasets
+tensorflow-cpu
 streamlit
