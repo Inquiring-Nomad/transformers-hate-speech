@@ -24,7 +24,7 @@ jobs:
             dvc pull
           env:
             GDRIVE_CREDENTIALS_DATA: ${{ secrets.DVCREMOTE }}
-        -name: Test files
+        - name: Test files
           run: |
             ls ${{ github.workspace }}
 
