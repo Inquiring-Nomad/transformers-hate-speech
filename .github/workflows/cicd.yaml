@@ -18,6 +18,7 @@ jobs:
           run: |
             python -m pip install --upgrade pip
             python -m pip install dvc
+            python -m pip install 'dvc[gdrive]'
         - name: DVC pull data
           run: |
             dvc pull
