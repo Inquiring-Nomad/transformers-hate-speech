@@ -4,17 +4,15 @@ from transformers import TFAutoModelForSequenceClassification, AutoTokenizer
 import time
 import dvc.api
 
-hatespeech = dvc.api.read(
-        'hate-speech-tranformers',
-        mode='rb'
-        )
-
-
-
 
 def load_tokenizer_and_model():
     with st.spinner('Please wait...'):
         time.sleep(5)
+    hatespeech = dvc.api.read(
+        'hate-speech-tranformers',
+        remote='myremote',
+        mode='rb'
+    )
     tokenizer = AutoTokenizer.from_pretrained('bert-base-cased')
     model = TFAutoModelForSequenceClassification.from_pretrained(hatespeech)
     return (model, tokenizer)
