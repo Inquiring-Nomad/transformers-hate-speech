@@ -1,7 +1,6 @@
 import streamlit as st
 import numpy as np
 from transformers import TFAutoModelForSequenceClassification, AutoTokenizer
-import tensorflow
 import time
 
 
