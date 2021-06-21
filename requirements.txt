@@ -3,4 +3,5 @@ transformers
 datasets
 tensorflow-cpu
 dvc
+dvc[gdrive]
 streamlit
