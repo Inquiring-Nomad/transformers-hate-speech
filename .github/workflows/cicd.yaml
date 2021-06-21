@@ -26,5 +26,5 @@ jobs:
             GDRIVE_CREDENTIALS_DATA: ${{ secrets.DVCREMOTE }}
         -name: Test files
           run: |
-            ls -altr
+            ls ${{ github.workspace }}
 
