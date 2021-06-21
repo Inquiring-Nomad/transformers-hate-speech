@@ -9,7 +9,7 @@ def load_tokenizer_and_model():
     with st.spinner('Please wait...'):
         time.sleep(5)
     hatespeech = dvc.api.read(
-        'hate-speech-tranformers',
+        'web-app/hate-speech-tranformers',
         remote='myremote',
         mode='rb'
     )
