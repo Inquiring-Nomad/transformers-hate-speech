@@ -25,7 +25,7 @@ jobs:
           env:
             GDRIVE_CREDENTIALS_DATA: ${{ secrets.DVCREMOTE }}
         - name: Deploy to Heroku
-        - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
+          uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
           with:
             heroku_api_key: ${{secrets.HEROKU_API_KEY}}
             heroku_app_name: tranformers-hate-speech
