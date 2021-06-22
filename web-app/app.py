@@ -10,24 +10,24 @@ def load_tokenizer_and_model():
     # with st.spinner('Please wait...'):
     #     time.sleep(5)
 
-    if not os.path.exists('hate-speech-tranformers'):
-        os.makedirs('hate-speech-tranformers')
-    hatespeech_h5 = dvc.api.read(
-        'web-app/hate-speech-tranformers/tf_model.h5',
-        remote='myremote',
-        mode='rb'
-    )
-    hatespeech_conf = dvc.api.read(
-        'web-app/hate-speech-tranformers/config.json',
-        remote='myremote',
-        mode='rb'
-    )
-    f = open("hate-speech-tranformers/tf_model.h5", "wb+")
-    f.write(hatespeech_h5)
-    f.close()
-    f = open("hate-speech-tranformers/config.json", "wb+")
-    f.write(hatespeech_conf)
-    f.close()
+    # if not os.path.exists('hate-speech-tranformers'):
+    #     os.makedirs('hate-speech-tranformers')
+    # hatespeech_h5 = dvc.api.read(
+    #     'web-app/hate-speech-tranformers/tf_model.h5',
+    #     remote='myremote',
+    #     mode='rb'
+    # )
+    # hatespeech_conf = dvc.api.read(
+    #     'web-app/hate-speech-tranformers/config.json',
+    #     remote='myremote',
+    #     mode='rb'
+    # )
+    # f = open("hate-speech-tranformers/tf_model.h5", "wb+")
+    # f.write(hatespeech_h5)
+    # f.close()
+    # f = open("hate-speech-tranformers/config.json", "wb+")
+    # f.write(hatespeech_conf)
+    # f.close()
 
     tokenizer = AutoTokenizer.from_pretrained('bert-base-cased')
     model = TFAutoModelForSequenceClassification.from_pretrained('hate-speech-tranformers')
