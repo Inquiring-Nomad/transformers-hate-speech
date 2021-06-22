@@ -1,1 +1,1 @@
-web: sh setup.sh && dvc pull &&  streamlit run web-app/app.py
+web: sh setup.sh  &&  streamlit run app.py

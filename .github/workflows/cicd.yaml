@@ -10,34 +10,39 @@ jobs:
     runs-on: ubuntu-latest
     steps:
         - uses: actions/checkout@v2
+          with:
+            fetch-depth: 0
         - name : testrun
           run: |
             git remote -v
             git status
             less web-app/.gitignore
-        - name: Deploy to Heroku
-          env:
-            HEROKU_API_TOKEN: ${{ secrets.HEROKU_API_KEY }}
-            HEROKU_APP_NAME: ${{ secrets.HEROKU_APP_NAME }}
-          if: github.ref == 'refs/heads/main' && job.status == 'success'
-          run: |
-            git remote add heroku https://heroku:$HEROKU_API_TOKEN@git.heroku.com/$HEROKU_APP_NAME.git
-            git push heroku HEAD:main -f
 
-#        - name: Set up Python 3.8
-#          uses: actions/setup-python@v2
-#          with:
-#            python-version: 3.8
-#        - name: Dependencies
-#          run: |
-#            python -m pip install --upgrade pip
-#            python -m pip install dvc
-#            python -m pip install 'dvc[gdrive]'
+
+        - name: Set up Python 3.8
+          uses: actions/setup-python@v2
+          with:
+            python-version: 3.8
+        - name: Dependencies
+          run: |
+            python -m pip install --upgrade pip
+            python -m pip install dvc
+            python -m pip install 'dvc[gdrive]'
 #        - name: DVC pull data
 #          run: |
 #            dvc pull
 #          env:
 #            GDRIVE_CREDENTIALS_DATA: ${{ secrets.DVCREMOTE }}
+#        - name: Deploy to Heroku
+#          env:
+#            HEROKU_API_TOKEN: ${{ secrets.HEROKU_API_KEY }}
+#            HEROKU_APP_NAME: ${{ secrets.HEROKU_APP_NAME }}
+#          if: github.ref == 'refs/heads/main' && job.status == 'success'
+#          run: |
+#            git remote add heroku https://heroku:$HEROKU_API_TOKEN@git.heroku.com/$HEROKU_APP_NAME.git
+#            git push heroku HEAD:main -f
+
+
 #        - name: Deploy to Heroku
 #          uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
 #          with:
