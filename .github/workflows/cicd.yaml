@@ -17,6 +17,22 @@ jobs:
             git remote -v
             git status
             less web-app/.gitignore
+
+
+        - name: Set up Python 3.8
+          uses: actions/setup-python@v2
+          with:
+            python-version: 3.8
+        - name: Dependencies
+          run: |
+            python -m pip install --upgrade pip
+            python -m pip install dvc
+            python -m pip install 'dvc[gdrive]'
+        - name: DVC pull data
+          run: |
+            dvc pull
+          env:
+            GDRIVE_CREDENTIALS_DATA: ${{ secrets.DVCREMOTE }}
         - name: Deploy to Heroku
           env:
             HEROKU_API_TOKEN: ${{ secrets.HEROKU_API_KEY }}
@@ -24,22 +40,8 @@ jobs:
           if: github.ref == 'refs/heads/main' && job.status == 'success'
           run: |
             git remote add heroku https://heroku:$HEROKU_API_TOKEN@git.heroku.com/$HEROKU_APP_NAME.git
+#            git add -f web-app/hate-speech-tranformers
             git push heroku HEAD:main -f
-
-#        - name: Set up Python 3.8
-#          uses: actions/setup-python@v2
-#          with:
-#            python-version: 3.8
-#        - name: Dependencies
-#          run: |
-#            python -m pip install --upgrade pip
-#            python -m pip install dvc
-#            python -m pip install 'dvc[gdrive]'
-#        - name: DVC pull data
-#          run: |
-#            dvc pull
-#          env:
-#            GDRIVE_CREDENTIALS_DATA: ${{ secrets.DVCREMOTE }}
 #        - name: Deploy to Heroku
 #          uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
 #          with:
