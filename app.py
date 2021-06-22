@@ -9,11 +9,11 @@ import os
 def load_tokenizer_and_model():
 
 
-    # tokenizer = AutoTokenizer.from_pretrained('bert-base-cased')
-    # model = TFAutoModelForSequenceClassification.from_pretrained('web-app/hate-speech-tranformers')
-    tokenizer = AutoTokenizer.from_pretrained("bert-base-cased", use_auth_token=True)
-
-    model = TFAutoModelForSequenceClassification.from_pretrained("akislou/hate-speech", use_auth_token=True)
+    tokenizer = AutoTokenizer.from_pretrained('bert-base-cased')
+    model = TFAutoModelForSequenceClassification.from_pretrained('web-app/hate-speech-tranformers')
+    # tokenizer = AutoTokenizer.from_pretrained("bert-base-cased", use_auth_token=True)
+    #
+    # model = TFAutoModelForSequenceClassification.from_pretrained("akislou/hate-speech", use_auth_token=True)
     return (model, tokenizer)
 
 
