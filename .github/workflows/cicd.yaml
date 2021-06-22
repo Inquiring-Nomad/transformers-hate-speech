@@ -14,6 +14,7 @@ jobs:
           run: |
             git remote -v
             git status
+            less web-app/.gitignore
 
 #        - name: Set up Python 3.8
 #          uses: actions/setup-python@v2
